@@ -1,0 +1,153 @@
+<html>
+	</head>
+		<title>Script Nation v1.30(Alpha)</title>
+		<meta charset=utf-8>
+		<link rel="shortcut icon" type="image/x-icon" href="icons/ruby.png" />
+		<link href="alert.css" rel="stylesheet" type="text/css" media="screen" />
+		<meta name="version" content="1.29"><meta name="author" content="hallihallo"><meta name="description" content="Just for fun">
+		<style type="text/css">
+			body,html{
+				cursor:pointer
+			}
+			@-webkit-keyframes anim {
+				0%   { -webkit-transform: rotate(0deg);}
+				100% { -webkit-transform: rotate(-100000deg);}
+			}
+			@-webkit-keyframes scaleIn {
+				0%   { opacity:1;width:0px;height:0px }
+				100% { opacity:1;width:1028px;height:579px }
+			}
+			@-webkit-keyframes meldung {
+				0%   { opacity:0;height:0px }
+				10% { opacity:1;height:84px }
+				90% { opacity:1;height:84px }
+				100% { opacity:0;height:0px }
+			}
+			@-webkit-keyframes sidebarIn {
+				0%   { left:-300px; }
+				100% { left:0px; }
+			}
+			@-webkit-keyframes sidebarOut {
+				0%   { left:0px;) }
+				100% { left:-300px; }
+			}
+			@-webkit-keyframes fadeOut {
+				0%   { opacity:1 }
+				100% { opacity:0 }
+			}
+			@-webkit-keyframes fadeIn {
+				0%   { -webkit-transform:scale3d(0,0,0) rotateX(90deg) rotateY(90deg) rotateZ(90deg) }
+				100% { -webkit-transform:scale3d(1,1,1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) }
+			}
+			@-webkit-keyframes fadeInHeader {
+				0%   { opacity:0 }
+				100% { opacity:1 }
+			}
+			@-webkit-keyframes dragIn {
+				0%   { width:0% }
+				100% { width:100% }
+			}
+			.headline {
+				-webkit-animation: fadeIn 1s linear
+			}
+			.sect {
+				-webkit-animation: fadeIn 0.6s cubic-bezier(1, 0, 0, 1)
+			}
+			.ani{
+				background: transparent;
+				-webkit-animation: anim 600s linear infinite;
+			}
+			.display {
+				background:transparent;
+				border-width:0px;
+				padding:0px;
+				margin:0px;
+				border:0px;
+				top:1px
+			}
+			.horrul {
+				-webkit-animation: dragIn 2s ease-out
+			}
+		</style>
+        <link rel="stylesheet" href="css/style.css">
+	</head>
+	<body onerror="fehlerimscript()" onload="storage()" style="-webkit-animation: fadeIn 3s linear;margin-left:0px;margin-right:0px" id=flimmer><a name="oben"></a>
+		<!--Header--><section height="78px" style="-webkit-animation: fadeInHeader 0.5s linear;box-shadow: 40px 0px 40px rgba(0,0,0,10);display:none;bottom:0px;position:fixed;height:75px; background-color:gray ;color: #ffffff;overflow:hidden;top:0px;width:100%;font-family:Segoe UI Light;color:black"id=headers><!--<input type=button style="text-align:left;width:700px;border-width:0px;background:gray;font-family:Segoe UI Light;font-size:49px" id=begr value=""></input>--><input type=button style="text-align:top;font-family:QuiverItal;background:#0000FF;color:#bbbbFF;border-width:2px;border-type:solid;border-color:black;width:290px" id=playerdisplay onclick="vergroessern()" value="WILLKOMMEN ZU SCRIPT NATION!"></input><image onclick="previous()" onmouseout="document.getElementById('prev').src='player/previous.png'" onmouseover="document.getElementById('prev').src='player/previous_blue.png'"id=prev src="player/previous.png"></image><image id=playbutton onmouseout="mouseoutplay()" onmouseover="mouseonplay()" src="player/control_play.png" onclick="toggleplayer()"></image><image onclick="skip()"onmouseout="document.getElementById('next').src='player/next.png'" onmouseover="document.getElementById('next').src='player/next_blue.png'" id=next src="player/next.png"></image><img onclick="loopmedia()" src="player/control_repeat.png" id=repeat></img><image id=voldisp onclick="mute()" src="player/sound.png"></image><input onchange="vol()" onclick="vol()" type="range" value=100 id=volume></input><video onended="skip()" src="media/Script Nation Video.mp4" height=60px id=musicvideo width=100></video><img id=statusicon src="icons/status/1.png"></img><select style="font-family:Segoe UI Light;" value="" onchange="changing=1;changestatus()" id=status><option value="1">Anwesend</option><option value="2">Abwesend</option><option value="3">Beschäftigt</option><option value="4">Offline(Unsichtbar)</option></select><input id=chatmessage placeholder="Chat Nachricht eingeben..."></input><button onclick="chat()">Senden</button><img align="right" height=64px title="Funktioniert auf eingen Browsern manchmal nicht!" width=64px onclick="schliesen()"src="img/power-black.svg"></img><img align="right" height=64px width=64px title="Neuerdings kannst du jetzt auch jederzeit durch das drücken der Esc-Taste ins Home-Menü zurückkehern!" onclick="home_menu()"src="icons/svg/home-black.svg"></img><image align="right" onclick="reload()" id=reloadicon src="icons/icon_restart.png"></image><image align="right" onclick="einstellungen()" height=64px src="icons/svg/gear-black.svg"></image><image onclick="users()" align="right" src="icons/icon_theteam.png"></image><image onclick="sidebartoggle()" align="right" id=bullets width=64px height=64px src="icons/svg/bullets-black.svg"></image><image onclick="bgsitechange()" align="right" id="contrast" src="icons/lightbulb_off.png"></image><image align="right" onclick="print()"src="icons/printer.png"></image><image align=right src="icons/lock.png" onclick="sperren()"></image><image align=right src="icons/font.png" onclick="schriftwechseln()"></image><image id=drink align=right title="Nicht trinken! Hab dir was reingekiptt, aber hab ein schlechtes Gewissen bekommen..." src="icons/drink.png" onclick="lsdmod()"></image><image align=right src="icons/application_get.png" onclick="minimize()"></section></br></br>
+		<!--Header-Mini--><section style="-webkit-animation: fadeInHeader 0.5s linear;top:0px;display:none;bottom:auto;position:fixed;height:20px; background-color:gray ;color: #ffffff;overflow:hidden;width:100%;font-family:Segoe UI Light;color:black"id=headermini><image onclick="previous()" onmouseout="document.getElementById('prev').src='player/previous.png'" onmouseover="document.getElementById('prev').src='player/previous_blue.png'"id=prev src="player/previous.png"></image><image id=playbutton onmouseout="mouseoutplay()" onmouseover="mouseonplay()" src="player/control_play.png" onclick="toggleplayer()"></image><image onclick="skip()"onmouseout="document.getElementById('next').src='player/next.png'" onmouseover="document.getElementById('next').src='player/next_blue.png'" id=next src="player/next.png"></image><video src="media/Script Nation Video.mp4" volume=0 height=20px id=musicvideo2 width=30></video><img id=statusicon2 src="icons/status/1.png"></img><input type=button class="display" id=chatupdate></input><img align="right" height=20px width=20px onclick="schliesen()"src="img/power-black.svg"></img><img align="right" height=20px width=20px onclick="home_menu()"src="icons/svg/home-black.svg"></img><image align="right" height=20px width=20px onclick="reload()"src="icons/icon_restart.png"></image><image align="right" height=20px width=20px onclick="einstellungen()" src="icons/icon_options.png"></image><image onclick="users()" height=20px width=20px align="right" src="icons/icon_theteam.png"><image onclick="bgsitechange()" align="right" id="contrast" src="icons/lightbulb_off.png"></image><image align="right" onclick="print()"src="icons/printer.png"></image><image align=right src="icons/lock.png" onclick="sperren()"></image><image align=right src="icons/font.png" onclick="schriftwechseln()"></image><image align=right src="icons/application_put.png" onclick="maximize()"></section>
+		<!--Sidebar--><section id=sidebar style="-webkit-animation: sidebarIn 0.3s ease-out;box-shadow: 40px 0px 40px rgba(0,0,0,10);display:none;position:fixed;bottom:0px;left:0px;top:0px;right:auto;background:gray;color:black;width:267px"><font size=5px face="Segoe UI">   Script Nation v.1.30</br><hr class="horrul" /><form style="margin-bottom:0px;margin-top:0px" id=accountsidebar onmouseout="document.getElementById('accountsidebar').style.background='gray'" onclick="userwrite()" onmouseover="document.getElementById('accountsidebar').style.background='red'"><hr class="horrul" />  <font size=4px face="Segoe UI"> <img src="icons/svg/user-black.svg"></img>Mein Account<hr class="horrul" /></font></form><form style="margin-bottom:0px;margin-top:0px" id=ranksidebar onmouseout="document.getElementById('ranksidebar').style.background='gray'" onclick="showach()" onmouseover="document.getElementById('ranksidebar').style.background='red'"><hr class="horrul" />  <font size=4px face="Segoe UI"> <img src="icons/exclamation.png"></img>Letzte Meldungen<hr class="horrul" /></font></form><form style="margin-bottom:0px;margin-top:0px" id=google onmouseout="document.getElementById('google').style.background='gray'" onmouseover="document.getElementById('google').style.background='red'"><hr class="horrul" />  <font size=4px face="Segoe UI"> <img height=16px width=16px src="icons/128.png"></img><input placeholder="Google-Suche " size=28 id=search><img onclick="googlesearch()" src="icons/svg/search-black.svg"></img></input><hr class="horrul" /></font></form><form style="margin-bottom:0px;margin-top:0px" id=set onmouseout="document.getElementById('set').style.background='gray'" onclick="einstellungen()" onmouseover="document.getElementById('set').style.background='red'"><hr class="horrul" />  <font size=4px face="Segoe UI"> <img height=16px width=16px src="icons/cog.png"></img>Einstellungen<hr class="horrul" /></font></form><form style="margin-bottom:0px;margin-top:0px" id=mods  onmouseout="document.getElementById('mods').style.background='gray'" onclick="modinst();modui()" onmouseover="document.getElementById('mods').style.background='red'"><hr class="horrul" />  <font size=4px face="Segoe UI"> <img height=16px width=16px src="icons/color_swatch.png"></img>Mods<hr class="horrul" /></font></form></section>
+		<!--Meldungen--><section id=meldung style="-webkit-animation: meldung 5s linear;display:none;position:fixed;bottom:auto;left:0px;top:0px;right:auto;background:red;color:black;width:20%;height:86px"><p id=fehler style="top:0px;margin-top:0px;font-size:20px;font-family:Arial Black;background:transparent;border-width:0px">Nothin over here</p></section>
+		<!--Script--><script type="text/javascript" src="games.js"></script><script type="text/javascript" src="emojis.js"></script><script type="text/javascript" src="playlist.js"></script><script type="text/javascript" src="alert.js"></script><script type="text/javascript" src="mod.js"></script><script type="text/javascript" src="mediaplayer.js"></script>
+		<a name=oben></a>
+		<!--Audiofiles--><audio id=failure src="media/Pouet.wav"></audio><audio id=logout src="media/logout.wav"></audio><audio id="audiofile" src="media/Windows Unlock.wav"></audio><audio id="shutdown" src="media/shut.wav"></audio><audio id="nav" src="media/Spracheein.wav"></audio><audio id="aus" src="media/Spracheaus.wav"></audio><audio id="aus" src="media/SpracheEnergiesparmodus.wav"></audio>
+		<section class=sect id=main_box style="display:none">
+		</br></br></br><center><font style="margin-top:10px" name=schrift class=font id=font color="#00FF00" face=Brandish size="7px"><h1 align="center" style="margin-top:0px;margin-bottom:5px;font-size:220%" class="headline">Script Nation</h1></font><font class=font id=ver color="#00FF00" face=Brandish size="7px"></br>v1.30(alpha)</font><font color="#FFFFFF" face="Segoe UI Light" size="7px"></br><font color="blue" face="Segoe UI Light" size="7px"></font></br></center>
+		<marquee>Ꙩ͜Ꙩ</marquee><!--Falls du das wissen willst, das ist der nächste Smiley für das marquee(Der ändert sich nämlich jedes mal!):Ӂ #Targo_Bank--><!--😂😍🙆😅-->
+		Optimized <small>for</small> <image class="left up ani" height="35px" width="35px"src="icons/Google Profile.ico"></br><font color="white" face="Segoe UI Light" size="4px">
+		<image src="icons/lock.png" onclick="sperren()">Sperren</image></br><image src="icons/font.png" onclick="schriftwechseln()">Schriftart wechseln</image></br><image onclick="print()"src="icons/printer.png">Drucken</image></br><image src="icons/application_put.png" onclick="maximize()"><image src="icons/application_get.png" onclick="minimize()">Header-Größe</image></br><img src="icons/svg/clock-black.svg" height=16px onclick="uhr()"></img>Uhr</br>
+		<button onclick="alerttest()">Alert-Test</button><button onclick="alert('<video src=media/customvideo.mp4 controls= width=1096px height=470px></br><button onclick=reload()>Weg hier!</button>',{left:10,top:10,width:837, height:480})">Eigene Musik im Media-player</button></br>
+		Gefällt dir die Seite? <u></br>
+		<a onclick="Mail ()" style="color:blue;cursor:pointer">Lass es uns wissen!</a></u>
+		<a href="mailto:CrazyCrafters@gmx.de"><image style="height:40px;width:40px" src="icons/svg/mail-black.svg"></image></a></br>
+		Drücke F12 um das Script zu sehen.</br>
+		Drücke F11 für Vollbild.</br>
+		Drücke F5 zum neu laden.</br></font><font color="#0000FF" face="Segoe UI Light" size="3px">
+		<u><a onclick="system ()">Systemvoraussetzungen</a></br></u></font><font color="#FFFFFF" face="Segoe UI Light" size="2px">
+		</font></center><hr class="horrul" />
+		Scripte:</font></br><font size="6px" face="Segoe UI Light">
+		<a href="#roulette">Roulette</a></br>
+		<a href="#coming">Coming Soon!</a></br></u>
+		<hr class="horrul" size="30px" color="00FF00"></font>
+		Tja,sieht so aus, als hätte Roulette das Würfel-Battle ganz schön weggefegt! <image src="icons/emoticon_wink.png"></image><a name="roulette"></a>
+		<main><!--ROULETTE-->
+		<font color="red" id=roul face="Brandish" size="7px">
+		<a name="roulette"></a><hr class="horrul" size="30px" color="00FF00">
+		<center><big><h1 ondblclick="real()">Roulette</h1></big>
+		</font>
+		<font color="blue" face="Tahoma" size="7px">
+		<u><button style="width:200px;border-radius:30px;cursor: pointer;background:black;color:white;height:40px;font-family:Segoe UI Light" onclick="roulette ()">Starten!</button></br>
+		</font>
+		<font color="white" face="Tahoma" size="12px"></u>
+		Version 1.2.1</br>
+		</font>
+		<font color="white" face="Tahoma" size="5px">
+		Zum Beenden müssen alle PopUps geschlossen sein-</br>
+		Dazu einfach Escape oder Enter gedrückt halten.</br></br>
+		</font></center>
+		<hr class="horrul" size="1px" color="white"/>
+		<font color="red" face="Tahoma" size="7px">
+		☺Roulette☺</br>
+		</font>
+		<font color="white" face="Segoe UI Light" size="5px">
+		©2015 hallihallo</br>
+		<font color="white" face="Segoe UI Light" size="2px"><hr class="horrul" size="30px" color="00FF00"></font>
+		<font color="white" face="Segoe UI Light" size="5px"></br><font color="white" face="Segoe UI Light" size="2px"><font color="white" face="Segoe UI Light" size="2px">
+		<!--media
+
+		☺Media Player☺</br>
+		</font>
+		<font color="white" face="Segoe UI Light" size="5px">
+		©2015 hallihallo</br>--><!--Hab die Elemente im Js auch auskommentiert. Musste wieder reinmachen.-->
+		<!--WEITERE-->
+		<font color="FFFFFF" id=comsoon face="Hollywood Hills" size="7px"><a name="coming"></a>
+		<center><h1>Coming Soon!</h1></font><font color="blue" face="Tahoma" size="7px">
+		<u><button style="border-radius:30px;cursor: pointer;background:blue;width:200px;height:40px;font-family:Arial Black" onclick="ifo ()">Infos?</button></br></font></u><font color="white" face="Tahoma" size="5px">
+		Zum Beenden müssen alle PopUps geschlossen sein-</br>Dazu einfach Escape oder Enter gedrückt halten.</br></br></font></center>
+		<hr class="horrul" size="1px" color="white"/><font color="red" face="Tahoma" size="7px">☺Coming Soon!☺</br></font><font color="white" face="Segoe UI Light" size="5px">©2015 hallihallo</br>
+		</br><a name=settings></a><hr class="horrul" size="30px" color="00FF00"></font></br>
+		<center><image style="cursor:pointer;width:40px;height:40px" src="img/twitter-icon-circle.png" onclick="twitter ()"></image><image style="cursor:pointer;width:40px;height:40px" src="img/youtube.png" onclick="yt ()"></image><image style="cursor:pointer;width:40px;height:40px" src="img/google-plus-circle4.png" onclick="google ()"></image></br>
+		<button onclick="dev ()">Entwickler</button><button onclick="asciiguy()">AsciiGuy</button><button onclick="vorschau()">Was dich in der nächsten Version erwartet</button></br>
+		<a href="http://www.famfamfam.com/lab/icons/silk/">IconPack</a>   <a href="#oben">Nach oben</a></main>
+		</section><section style="position:fixed;bottom:0px;left:0px"><p align=right style="position:fixed;right:3px;bottom:0px"><font face="Segoe UI Light" size="5px"><img id=usericon src="" content="hi"></image><input type=button value="" id=begr style="font-family:Segoe UI Light;font-size:20px;color:white;background:transparent;border-width:0px"></input></br><font face="Segoe UI Light" size="3px">Angemeldet</section>
+		<section class=sect id=roulette_box style="display:none"><center><font face="Brandish" color=red size=7px><h1><big>Roulette</big></h1></br><button style='width:200px;height:50px'onclick='real()'>Sofortspiel</button></br><font face='Segoe UI Light' color='white'></br></section>
+		<section class=sect id=settings_box style="display:none"><head><link href='alert.css' rel='stylesheet' type='text/css' media='screen' /><title>Settings</title></head><body background='img/background.jpg'><script type='text/javascript' src='alert.js'></script><audio id='aus' src='media/Spracheaus.wav'></audio><font face='Segoe UI Light' size=50px><img src='icons/bullet_wrench.png' onclick='nicknames()'>Nicknamen eingeben</img></br><img src='icons/application_get.png' onclick='mods ()'>Mods installieren</img></br><img onclick='passw()'src='icons/lock_edit.png'>Passwort ändern</img></br></br><image onclick='home_menu()' src='icons/icon_back.png'></br></section>
+		<section class=sect id=useredit_box style="display:none"><head><title>Users</title><body background='img/background.jpg'><font face='Segoe UI Light' color='white' size='7px'><audio id='aus' src='media/Spracheaus.wav'></audio>Benutzerkontensteuerung</br></br>Aktueller Benutzer:</br></font><font face='Segoe UI Light' color='white' size='5px'><image id=user_icon src='icons/user1.png'></image><input type=button id=nickname_edit style="font-size:20px;border-width:0px;color:white;font-family:Segoe UI Light;background:transparent"></input></br></font><p type=button id=comment_edit style="font-size:20px;border-width:0px;color:white;font-family:Segoe UI Light;background:transparent"></p></br></br><image onclick='useredit()'src='icons/svg/edit-black.svg' height=35px>User bearbeiten</image></br><image onclick='usercomment()' src='icons/svg/comment-black.svg' height=35px>Userkommentar eingeben</image></br></br></br><image onclick='home_menu()' src='icons/icon_back.png'></section>
+		<section class=sect id=home_menu style="display:none"><head><title>HOME</title><body background="img/1.jpg"></br><img src="icons/svg/home-black.svg" height=50px width=50px></img>HOME</br><button id=trac onclick="script_nation()"style="font-size:50px;font-family:Segoe UI Light;width:500px;text-align:left"><image src="img/icon_128.png" height=60px>Zur Seite</image></button></br><button onclick="player_big()"style="font-size:50px;font-family:Segoe UI Light;width:500px;text-align:left"><image height=60px src="icons/svg/video-black.svg">MediaPlayer</image></button></br><button onclick="snshop()"style="font-size:50px;font-family:Segoe UI Light;width:500px;text-align:left"><image height=60px src="icons/svg/shop-black.svg">Script Nation Shop</image></button></br><button onclick="chatwin()"style="font-size:50px;font-family:Segoe UI Light;width:500px;text-align:left"><image height=60px src="icons/svg/comment-black.svg">Chats</image></button></section>
+		<section class=sect id=player_box style="display:none"><button style="background:green">Script Nation Media Player</button><button style="background:gray" onclick="document.getElementById('player_box').style.display='none';document.getElementById('youtube_box').style.display='block';">YouTube</button><center><font color="blue" face="Tahoma" size="7px"><video style="-webkit-animation: scaleIn 1s cubic-bezier(0, 0, 0, 0.99);box-shadow: 20px 20px 40px rgba(0,0,0,10);margin-bottom:0px"src="media/Script Nation Video.mp4" height=579px id=musicvideo3 width=1028></video></br></br></bR><image onmouseover="document.getElementById('previ').src='player/previous_blue.png'" onmouseout="document.getElementById('previ').src='player/previous.png'" id=previ onclick="previous()" src="player/previous.png"></image><image id=playbutton2 onmouseout="mouseoutplay()" onmouseover="mouseonplay()" src="player/control_play.png" onclick="toggleplayer()"></image><image onmouseover="document.getElementById('skip').src='player/next_blue.png'" onmouseout="document.getElementById('skip').src='player/next.png'" id=skip onclick="skiptrack()" src="player/next.png"></image></br><input type=button style="width:400px;font-family:Brandish" id=playerdisplay2 value="Willkommen zu Script Nation"></input></section>
+		<section class=sect id=youtube_box style="display:none"><button style="background:gray" onclick="document.getElementById('youtube_box').style.display='none';document.getElementById('player_box').style.display='block';">Script Nation Media Player</button><button style="background:green">YouTube</button></br><center><iframe style="-webkit-animation: scaleIn 1s cubic-bezier(0, 0, 0, 0.99);height:579;width:1028px" src="http://youtube.com"></iframe></center></section>
+		<section class=sect id=loading_screen style="display:none"><title>Laden Ihrer Daten...</title><link rel='shortcut icon' href='img/ajax-loader.gif' /><body background='img/mainmenu_loading_01.jpg'><center></br></br></br></br><div class="col-sm-2"><div class="sp sp-circle"></div></div></br><font color=white face='Segoe UI Light' size=7px>Herzlich Willkommen!</br><font face='Segoe UI Light' size=5px>Ihre Userdaten werden geladen...</section>
+		<section class=sect id=loading_screen2 style="display:block"><font face="Brandish" color="green" size="7px"><h1><big><center>SCRIPT NATION</big></center></h1></font><font face="Segoe UI Light"><center>Willkommen</br><div class="col-sm-2"><div class="sp sp-circle"></div></div></br></font></center></section>
+		<section class=sect id=modUI style="box-shadow: 20px 20px 40px rgba(0,0,0,10);background:white;position:fixed;top:30px;right:30px;left:30px;bottom:30px;display:none"><font color="black" face="Segoe UI Light" size=7px>Erkannte Mods<img align=right style="margin-top:3px;margin-right:3px" onclick="hidemodui()" src="icons/svg/delete-black.svg"></img></br></br><input style="font-size:30px;font-family:Segoe UI Light;background:transparent;border-width:0px;margin-left:5px" type=button id=modinstalled></input></br><input style="font-size:20px;font-family:Segoe UI Light;background:transparent;border-width:0px;margin-left:5px" type=button id=moddescription></input></br></bR></br>Enthaltene Mods:</br><input type=button id=mod1 onclick="mod1()"></input><input type=button  id=mod2 onclick="mod2()"></input><input type=button  id=mod3 onclick="mod3()"></input></section>
+		<section class=sect id=SN_shop style="display:none"><font color="white" face="Segoe UI Light" size="7px"><img height=35px src="icons/svg/shop-black.svg"></img>SHOP</br></br>Neues</br><button style="font-size:20px;font-family:Segoe UI Light" onclick="window.open('http://www.mediafire.com/download/rpwfc4ablbmiewu/Script_Nation_1.26_Diamond_Edition.zip')">Zurück in die Vergangenheit: Die Script Nation v1.26</button></br><button style="font-size:20px;font-family:Segoe UI Light" onclick="window.open('http://mediafire.com/file/hu9wr0thb79dfnvhki')">Neue Mod:Roulette Hack???</button></font></section>
+		<section class=sect id=chats_box style="display:none"><font face=Brandish size=7px>Twitter</br><iframe style="height:579;width:1028px" src="https://twitter.com"></iframe></br></bR>Facebook</br><iframe style="height:579;width:1028px" src="http://facebook.com"></iframe></br></br>Google+</br><iframe style="height:579;width:1028px" src="http://plus.google.com"></iframe></font></section>
+	</body>
+</html>
