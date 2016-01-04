@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>Willkommen zu Script Nation!</title>
+		<meta charset=utf-8>
+		<script type="text/javascript">
+		function verl() {
+		var con;
+		con=confirm("!!!ACHTUNG!!! Bevor Sie diese Seite verlassen, überprüfen Sie noch einmal: Haben Sie alle Dateien richtig entpackt? Befinden Sie sich in Google Chrome?                                                                         Wollen Sie diese Seite verlassen?")
+		if (con==true)  {
+		window.localStorage.setItem("firststart",0)
+		window.document.write("<a href='Script Nation.html'>Hier klicken</a>")
+		}
+		}
+		</script>
+	</head>
+	<body>
+	<font face=Arial size=6px>Tutorial</br>
+	<video height=650px width=1000 src="media/tutorial.mp4" controls=""></video>
+	<button onclick="verl()">Zur Seite</button></br>ACHTUNG! Google Chrome oder Chromium vorausgesetzt
+	</body>
+</html>
